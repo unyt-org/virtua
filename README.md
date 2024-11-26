@@ -33,7 +33,7 @@ If you use this lib in [legacy browsers which does not have ResizeObserver](http
 ## Getting started
 
 ### UIX
-## Rendering on demand
+#### Rendering on demand
 ```tsx
 <VList 
 	itemSize={40}
@@ -50,7 +50,7 @@ If you use this lib in [legacy browsers which does not have ResizeObserver](http
 </VList>
 ```
 
-## Rendering all
+#### Rendering all
 ```tsx
 <VList 
 	itemSize={40}
@@ -64,7 +64,7 @@ If you use this lib in [legacy browsers which does not have ResizeObserver](http
 </VList>
 ```
 
-## Rendering dynamic data
+#### Rendering dynamic data
 ```tsx
 const data = $([10, 20, 30, 40]);
 <VList 
