@@ -2,7 +2,7 @@
 
 ![npm](https://img.shields.io/npm/v/virtua) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/virtua) ![npm](https://img.shields.io/npm/dw/virtua) [![Best of JS](https://img.shields.io/endpoint?url=https://bestofjs-serverless.now.sh/api/project-badge?fullName=inokawa%2Fvirtua%26since=daily)](https://bestofjs.org/projects/virtua) [![check](https://github.com/inokawa/virtua/actions/workflows/check.yml/badge.svg)](https://github.com/inokawa/virtua/actions/workflows/check.yml) [![demo](https://github.com/inokawa/virtua/actions/workflows/demo.yml/badge.svg)](https://github.com/inokawa/virtua/actions/workflows/demo.yml)
 
-> A zero-config, fast and small (~3kB) virtual list (and grid) component for [React](https://github.com/facebook/react), [Vue](https://vuejs.org/), [Solid](https://www.solidjs.com/) and [Svelte](https://svelte.dev/).
+> A zero-config, fast and small (~3kB) virtual list (and grid) component for [UIX](https://github.com/unyt-org/uix), [React](https://github.com/facebook/react), [Vue](https://vuejs.org/), [Solid](https://www.solidjs.com/) and [Svelte](https://svelte.dev/).
 
 ![example](./example.gif)
 
@@ -31,6 +31,58 @@ npm install virtua
 If you use this lib in [legacy browsers which does not have ResizeObserver](https://caniuse.com/?search=resizeobserver), you should use [polyfill](https://github.com/juggle/resize-observer#switching-between-native-and-polyfilled-versions).
 
 ## Getting started
+
+### UIX
+## Rendering on demand
+```tsx
+<VList 
+	itemSize={40}
+	overscan={20}
+	count={1000}
+	style={{ height: "200px" }}>
+	{
+		(index: number) => (
+			<div style={{ height: 40, background: "#fff" }}>
+				Item #{index}
+			</div> as HTMLElement
+		)
+	}
+</VList>
+```
+
+## Rendering all
+```tsx
+<VList 
+	itemSize={40}
+	overscan={20}
+	style={{ height: "200px" }}>
+	{ Array.from({ length: 1000 }).map((_, index) => (
+		<div style={{ height: 40, background: "#fff" }}>
+			Item #{index}
+		</div>
+	)) }
+</VList>
+```
+
+## Rendering dynamic data
+```tsx
+const data = $([10, 20, 30, 40]);
+<VList 
+	itemSize={40}
+	overscan={20}
+	style={{ height: "200px" }}
+	data={data}>
+	{
+		(data: number, index: number) => (
+			<div style={{ height: data, background: "#fff" }}>
+				Item #{index}
+			</div> as HTMLElement
+		)
+	}
+</VList>;
+
+data.push(50);
+```
 
 ### React
 
