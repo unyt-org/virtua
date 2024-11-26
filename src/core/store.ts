@@ -10,15 +10,15 @@ import {
   computeRange,
   takeCacheSnapshot,
   findIndex,
-} from "./cache";
-import { isIOSWebKit } from "./environment";
+} from "./cache.ts";
+import { isIOSWebKit } from "./environment.ts";
 import type {
   CacheSnapshot,
   InternalCacheSnapshot,
   ItemResize,
   ItemsRange,
-} from "./types";
-import { abs, max, min, NULL } from "./utils";
+} from "./types.ts";
+import { abs, max, min, NULL } from "./utils.ts";
 
 const SCROLL_IDLE = 0;
 const SCROLL_DOWN = 1;
@@ -131,7 +131,7 @@ export const createVirtualStore = (
   shouldAutoEstimateItemSize: boolean = false
 ): VirtualStore => {
   let isSSR = !!ssrCount;
-  let stateVersion: StateVersion = [];
+  const stateVersion: StateVersion = $(1); // UIX
   let viewportSize = 0;
   let startSpacerSize = 0;
   let scrollOffset = 0;
@@ -422,7 +422,8 @@ export const createVirtualStore = (
       }
 
       if (mutated) {
-        stateVersion = [];
+        // @ts-ignore $
+        stateVersion.val++; // UIX
 
         if (shouldFlushPendingJump && pendingJump) {
           jump += pendingJump;

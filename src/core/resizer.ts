@@ -1,11 +1,11 @@
-import { getCurrentDocument, getCurrentWindow } from "./environment";
+import { getCurrentDocument, getCurrentWindow } from "./environment.ts";
 import {
   ACTION_ITEM_RESIZE,
   ACTION_VIEWPORT_RESIZE,
   type VirtualStore,
-} from "./store";
-import { type ItemResize } from "./types";
-import { max, NULL } from "./utils";
+} from "./store.ts";
+import { type ItemResize } from "./types.ts";
+import { max, NULL } from "./utils.ts";
 
 const createResizeObserver = (cb: ResizeObserverCallback) => {
   let ro: ResizeObserver | undefined;

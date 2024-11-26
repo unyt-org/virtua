@@ -4,7 +4,7 @@ import {
   isIOSWebKit,
   isRTLDocument,
   isSmoothScrollSupported,
-} from "./environment";
+} from "./environment.ts";
 import {
   ACTION_SCROLL,
   type VirtualStore,
@@ -14,9 +14,9 @@ import {
   ACTION_BEFORE_MANUAL_SMOOTH_SCROLL,
   ACTION_START_OFFSET_CHANGE,
   isInitialMeasurementDone,
-} from "./store";
-import { type ScrollToIndexOpts } from "./types";
-import { debounce, timeout, clamp, microtask } from "./utils";
+} from "./store.ts";
+import { type ScrollToIndexOpts } from "./types.ts";
+import { debounce, timeout, clamp, microtask } from "./utils.ts";
 
 /**
  * scrollLeft is negative value in rtl direction.

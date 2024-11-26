@@ -1,4 +1,4 @@
-import { once } from "./utils";
+import { once } from "./utils.ts";
 
 /**
  * @internal

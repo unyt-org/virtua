@@ -1,5 +1,5 @@
-import { type InternalCacheSnapshot, type ItemsRange } from "./types";
-import { clamp, floor, max, min, sort } from "./utils";
+import { type InternalCacheSnapshot, type ItemsRange } from "./types.ts";
+import { clamp, floor, max, min, sort } from "./utils.ts";
 
 type Writeable<T> = {
   -readonly [key in keyof T]: Writeable<T[key]>;
